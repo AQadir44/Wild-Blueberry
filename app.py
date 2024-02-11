@@ -6,7 +6,7 @@ import numpy as np
 xg = pickle.load(open("model/lreg_bbry_tuned_model.pkl",'rb'))
 rf = pickle.load(open("model/rf_bbry_tuned_model.pkl",'rb'))
 
-st.title("Laptop Predictor")
+st.title("Yield Predictor")
 
 
 clone_size = st.number_input("enter clone size: " , max_value=40.0 , key = "clone_size")
@@ -30,6 +30,6 @@ if submit:
 
     query = query.reshape(1,7)
 
-    st.title("The predicted price from xgboost of this configuration is " + str(int(xg.predict(query)[0])))
+    st.title("The predicted yield from xgboost is" + str(int(xg.predict(query)[0])))
 
-    st.title("The predicted yield from randomforest value of these parameter is " + str(int((rf.predict(query)[0]))))
+    st.title("The predicted yield from randomforest is " + str(int((rf.predict(query)[0]))))
